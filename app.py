@@ -13,7 +13,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.errorhandler(HTTPException)
+@app.errorhandler(404)
 def handle(_):
     return jsonify(
         {
