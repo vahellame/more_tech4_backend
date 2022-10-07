@@ -24,7 +24,7 @@ execute_sql(
     'last_name VARCHAR NOT NULL, '
     'email VARCHAR NOT NULL, '
     'phone VARCHAR NOT NULL, '
-    'command_id INTEGER NOT NULL DEFAULT -1, '
+    'team_id INTEGER NOT NULL DEFAULT -1, '
     'coins INTEGER NOT NULL DEFAULT 0, '
     'address VARCHAR NOT NULL'
     ')',
@@ -32,7 +32,7 @@ execute_sql(
     POSTGRESQL_CONNECTION_PARAMS,
 )
 execute_sql(
-    'CREATE TABLE commands('
+    'CREATE TABLE teams('
     'id SERIAL PRIMARY KEY, '
     'title VARCHAR, '
     'description VARCHAR, '
