@@ -17,7 +17,7 @@ def handle_login():
     return process_login(request)
 
 
-@app.route("/whoami", methods=['POST'])
+@app.route("/whoami", methods=['GET'])
 def handle_whoami():
     return process_whoami(request)
 
