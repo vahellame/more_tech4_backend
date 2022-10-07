@@ -4,7 +4,7 @@ from http.client import HTTPException
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from src.methods.list_cowrkers import process_list_coworkers
+from src.methods.list_coworkers import process_list_coworkers
 from src.methods.login import process_login
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
