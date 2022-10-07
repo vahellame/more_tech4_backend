@@ -5,9 +5,6 @@ import bcrypt
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
 
-# postgresql_connections_params_copy = POSTGRESQL_CONNECTION_PARAMS.copy()
-#
-# postgresql_connections_params_copy['dbname'] = 'postgres'
 
 execute_sql(
     'DROP TABLE IF EXISTS users, teams, achivments, products ',
