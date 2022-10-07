@@ -2,14 +2,11 @@ from flask import Request, jsonify, abort
 
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
+from src.utils.get_token_from_request import get_token_from_request
 
 
 def process_list_coworkers(request: Request):
-    auth_header = request.headers.get('Authorization')
-    if auth_header:
-        token = auth_header.split(" ")[1]
-    else:
-        token = ''
+    token = get_token_from_request(request)
     user_data = execute_sql(
         'SELECT team_id '
         'FROM users '
