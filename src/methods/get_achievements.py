@@ -23,8 +23,7 @@ def process_get_achievements(request: Request):
             (achievement_id,),
             POSTGRESQL_CONNECTION_PARAMS,
         )
-        achievements.append(
-        )
+        achievements.append(achievement)
     response_dict = {
         'status': 'ok',
         'achievements': achievements
