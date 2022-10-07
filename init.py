@@ -28,7 +28,7 @@ execute_sql(
     'coins INTEGER NOT NULL, '
     'thanksgivings INTEGER NOT NULL, '
     'address VARCHAR NOT NULL, '
-    'achievements INTEGER[] NOT NULL, '
+    'achievement_ids INTEGER[] NOT NULL, '
     'cart JSONB NOT NULL'
     ')',
     (),

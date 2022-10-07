@@ -21,8 +21,9 @@ execute_sql(
     'last_name VARCHAR NOT NULL, '
     'email VARCHAR NOT NULL, '
     'phone VARCHAR NOT NULL, '
-    'team_id INTEGER NOT NULL DEFAULT -1, '
-    'coins INTEGER NOT NULL DEFAULT 0, '
+    'team_id INTEGER NOT NULL, '
+    'matic REAL NOT NULL, '
+    'rubles MONEY NOT NULL, '
     'address VARCHAR NOT NULL'
     ')',
     (),
