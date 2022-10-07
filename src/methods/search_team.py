@@ -20,7 +20,7 @@ def process_search_team(request: Request):
         team_users = execute_sql(
             'SELECT * '
             'FROM users '
-            'WHERE teams_id = %s',
+            'WHERE team_id = %s',
             (team_id,),
             POSTGRESQL_CONNECTION_PARAMS,
         )
