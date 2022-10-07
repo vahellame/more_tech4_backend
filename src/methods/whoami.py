@@ -5,13 +5,27 @@ from src.utils.exequte_sql import execute_sql
 
 
 def process_whoami(request: Request):
-    data = request.get_json()
-    user_id = data['id']
+    auth_header = request.headers.get('Authorization')
+    if auth_header:
+        token = auth_header.split(" ")[1]
+    else:
+        token = ''
     user_data = execute_sql(
         'SELECT * '
         'FROM users '
         'WHERE token = %s',
-        (user_id,),
+        (token,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
-    return jsonify(user_data)
+
+    if len(user_data) != 0:
+        response_dict = {
+            'status': 'ok',
+            'user': user_data[0]
+        }
+        return jsonify(response_dict)
+    response_dict = {
+        'status': 'error',
+        'error': 'Пользователь не найден',
+    }
+    return jsonify(response_dict)
