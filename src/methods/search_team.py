@@ -26,12 +26,7 @@ def process_search_team(request: Request):
         )
         teams[i]['users'] = team_users
     response_dict = {
-        'teams': [
-            {
-                'id': team_id,
-                'users': team_users
-            },
-            {},
-        ],
+        'status': 'ok',
+        'teams': teams,
     }
     return jsonify(response_dict)
