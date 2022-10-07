@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from http.client import HTTPException
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -10,6 +11,16 @@ from src.methods.whoami import process_whoami
 
 app = Flask(__name__)
 CORS(app)
+
+
+@app.errorhandler(HTTPException)
+def handle(_):
+    return jsonify(
+        {
+            'status': 'error',
+            'error': "Ошибка сервера",
+        }
+    ), 200
 
 
 @app.route("/login", methods=['POST'])
