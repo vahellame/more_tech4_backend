@@ -16,7 +16,7 @@ def process_create_achievement(request: Request):
         f'{CRYPTO_BASE_URL}/v1/nft/generate',
         {
             "toPublicKey": CRYPTO_OWNER_PUBLIC_KEY,
-            'uri': f'{BACKEND_BASE_URL}/photo/{photo_id}.png',
+            'uri': f'{BACKEND_BASE_URL}/photo/{photo_id}',
             "nftCount": 1,
         },
     )
