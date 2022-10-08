@@ -54,6 +54,7 @@ def handle_search_team():
 def handle_list_coworkers():
     return process_list_coworkers(request)
 
+
 @app.route("/photo/<url>", methots=['GET'])
 def handle_photo(url):
     return process_photo(url)
