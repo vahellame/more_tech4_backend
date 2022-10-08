@@ -12,7 +12,7 @@ def process_search_user(request: Request):
         users_data = execute_sql(
             'SELECT * '
             'FROM users '
-            'WHERE email = %s',
+            'WHERE email ILIKE %s',
             (email,),
             POSTGRESQL_CONNECTION_PARAMS,
         )
@@ -27,7 +27,7 @@ def process_search_user(request: Request):
         users_data = execute_sql(
             'SELECT * '
             'FROM users '
-            'WHERE first_name = %s OR middle_name = %s OR last_name = %s',
+            'WHERE first_name ILIKE %s OR middle_name ILIKE %s OR last_name ILIKE %s',
             (name,),
             POSTGRESQL_CONNECTION_PARAMS,
         )
