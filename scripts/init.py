@@ -1,11 +1,11 @@
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
 
-execute_sql(
-    'DROP TABLE IF EXISTS users, teams, achievements, products, transactions ',
-    (),
-    POSTGRESQL_CONNECTION_PARAMS,
-)
+# execute_sql(
+#     'DROP TABLE IF EXISTS users, teams, achievements, products, transactions ',
+#     (),
+#     POSTGRESQL_CONNECTION_PARAMS,
+# )
 execute_sql(
     'CREATE TABLE users('
     'id SERIAL PRIMARY KEY, '
