@@ -52,7 +52,7 @@ def process_transfer_achievement(request: Request):
     execute_sql(
         'INSERT INTO transactions(tx_hash, tx_type, amount, user_id_from, user_id_to) '
         'VALUES (%s, %s, %s, %s, %s)',
-        (transaction_hash, 3, token_id, 1, user_id_to),
+        (transaction_hash, 3, achievement_id, 1, user_id_to),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     return jsonify(
