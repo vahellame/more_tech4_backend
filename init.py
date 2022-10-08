@@ -5,7 +5,6 @@ import bcrypt
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
 
-
 execute_sql(
     'DROP TABLE IF EXISTS users, commands, achievements, products ',
     (),
@@ -67,3 +66,6 @@ execute_sql(
     (),
     POSTGRESQL_CONNECTION_PARAMS,
 )
+
+# admin создает ачивки
+# manager рассылает ачивки

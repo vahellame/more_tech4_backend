@@ -15,6 +15,7 @@ execute_sql(
     'CREATE TABLE users('
     'id SERIAL PRIMARY KEY, '
     'token VARCHAR, '
+    'public_key VARCHAR, '
     'hash_and_salt VARCHAR, '
     'first_name VARCHAR NOT NULL, '
     'middle_name VARCHAR NOT NULL, '
@@ -22,8 +23,6 @@ execute_sql(
     'email VARCHAR NOT NULL, '
     'phone VARCHAR NOT NULL, '
     'team_id INTEGER NOT NULL, '
-    'matic REAL NOT NULL, '
-    'rubles MONEY NOT NULL, '
     'address VARCHAR NOT NULL'
     ')',
     (),

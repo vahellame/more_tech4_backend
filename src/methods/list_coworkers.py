@@ -6,12 +6,12 @@ from src.utils.get_token_from_request import get_token_from_request
 
 
 def process_list_coworkers(request: Request):
-    token = get_token_from_request(request)
+    user_id = request.get_json()['user_id']
     user_data = execute_sql(
         'SELECT team_id '
         'FROM users '
-        'WHERE token = %s',
-        (token,),
+        'WHERE id = %s',
+        (user_id,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     if len(user_data) != 0:
