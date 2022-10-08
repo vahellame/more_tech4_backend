@@ -6,3 +6,5 @@ def process_create_achievement(request: Request):
     title = data['title']
     description = data['title']
     price = data['price']
+    photo_id = data['photo_id']
+

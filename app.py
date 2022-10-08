@@ -8,6 +8,8 @@ from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
+from src.methods.transfer_matics import process_transfer_matics
+from src.methods.transfer_rubles import process_transfer_rubles
 from src.methods.upload_photo import process_upload_photo
 from src.methods.who import process_who
 from src.methods.whoami import process_whoami
@@ -64,3 +66,13 @@ def handle_photo(photo_path):
 @app.route("/upload_photo", methods=['POST'])
 def handle_upload_photo():
     return process_upload_photo(request)
+
+
+@app.route("/transfer_rubles", methods=['POST'])
+def handle_transfer_rubles():
+    return process_transfer_rubles(request)
+
+
+@app.route("/transfer_matics", methods=['POST'])
+def handle_transfer_matics():
+    return process_transfer_matics(request)

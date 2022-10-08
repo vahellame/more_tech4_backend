@@ -1,4 +1,3 @@
-import requests
 from flask import jsonify, Request
 
 from src.config import POSTGRESQL_CONNECTION_PARAMS, CRYPTO_BASE_URL

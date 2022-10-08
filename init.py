@@ -12,7 +12,7 @@ execute_sql(
     'token VARCHAR NOT NULL, '
     'hash_and_salt VARCHAR NOT NULL, '
     'public_key VARCHAR NOT NULL, '
-    'photo_url VARCHAR NOT NULL, '
+    'photo_id VARCHAR NOT NULL, '
     'first_name VARCHAR NOT NULL, '
     'middle_name VARCHAR NOT NULL, '
     'last_name VARCHAR NOT NULL, '
@@ -44,7 +44,7 @@ execute_sql(
     'title VARCHAR NOT NULL, '
     'price INTEGER NOT NULL, '
     'description VARCHAR NOT NULL, '
-    'photo_links VARCHAR[] NOT NULL'
+    'photo_ids VARCHAR[] NOT NULL'
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
@@ -56,7 +56,7 @@ execute_sql(
     'description VARCHAR NOT NULL, '
     'people_gets_count INTEGER NOT NULL, '
     'price INTEGER NOT NULL, '
-    'photo_link VARCHAR NOT NULL'
+    'photo_id VARCHAR NOT NULL'
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
@@ -75,9 +75,5 @@ execute_sql(
     POSTGRESQL_CONNECTION_PARAMS,
 )
 
-
-execute_sql(
-
-)
 # admin создает ачивки
 # manager рассылает ачивки
