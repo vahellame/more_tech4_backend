@@ -8,7 +8,7 @@ def process_search_user(request: Request):
     data = request.get_json()
     if 'email' in list(data.keys()):
         email = data['email']
-        email = f"%s{email}%s"
+        email = f"%{email}%"
         users_data = execute_sql(
             'SELECT * '
             'FROM users '
@@ -23,7 +23,7 @@ def process_search_user(request: Request):
         return jsonify(response_dict)
     elif 'name' in list(data.keys()):
         name = data['name']
-        name = f'%s{name}%s'
+        name = f'%{name}%'
         users_data = execute_sql(
             'SELECT * '
             'FROM users '
