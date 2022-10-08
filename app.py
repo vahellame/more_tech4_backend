@@ -112,3 +112,4 @@ def handle_list_achievements():
 @app.route("/test", methods=['GET'])
 def handle_test():
     return jsonify({'status': 'ok'})
+
