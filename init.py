@@ -77,6 +77,8 @@ execute_sql(
 )
 
 
+execute_sql(
 
+)
 # admin создает ачивки
 # manager рассылает ачивки
