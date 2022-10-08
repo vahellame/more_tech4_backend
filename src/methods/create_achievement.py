@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+import requests
+from flask import Request, jsonify
 
-from flask import Request
+from src.config import CRYPTO_OWNER_PUBLIC_KEY, BACKEND_BASE_URL, CRYPTO_BASE_URL, POSTGRESQL_CONNECTION_PARAMS
+from src.utils.exequte_sql import execute_sql
 
 
 def process_create_achievement(request: Request):
@@ -9,8 +12,20 @@ def process_create_achievement(request: Request):
     description = data['title']
     price = data['price']
     photo_id = data['photo_id']
-    achievnet = {
-        'tx': 0xf21e4d805e05f7d3fc8bdb32505d505c6aa840f1825e2bdcc3a2522cb641eeb4,
-        'uri':
-    }
-
+    r = requests.post(
+        f'{CRYPTO_BASE_URL}/v1/nft/generate',
+        {
+            "toPublicKey": CRYPTO_OWNER_PUBLIC_KEY,
+            'uri': f'{BACKEND_BASE_URL}/photo/{photo_id}.png',
+            "nftCount": 1,
+        },
+    )
+    execute_sql(
+        "INSERT INTO achievements(title, description, people_gets_count, price, photo_id) "
+        "VALUES (%s, %s, %s, %s, %s)",
+        (),
+        POSTGRESQL_CONNECTION_PARAMS,
+    )
+    return jsonify(
+        {'status': 'ok'}
+    )

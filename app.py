@@ -29,6 +29,7 @@ CORS(app)
 #     transfer_encoding = request.headers.get("Transfer-Encoding", None)
 #     if transfer_encoding == u"chunked":
 #         request.environ["wsgi.input_terminated"] = False
+
 @app.errorhandler(Exception)
 def handle(_):
     return jsonify(
