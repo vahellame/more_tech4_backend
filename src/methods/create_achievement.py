@@ -9,10 +9,10 @@ from src.utils.exequte_sql import execute_sql
 def process_create_achievement(request: Request):
     data = request.get_json()
     title = data['title']
-    description = data['title']
+    description = data['description']
     price = data['price']
     photo_id = data['photo_id']
-    r = requests.post(
+    requests.post(
         f'{CRYPTO_BASE_URL}/v1/nft/generate',
         {
             "toPublicKey": CRYPTO_OWNER_PUBLIC_KEY,
