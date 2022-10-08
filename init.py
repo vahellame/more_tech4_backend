@@ -21,7 +21,6 @@ execute_sql(
     'team_id INTEGER NOT NULL, '
     'job VARCHAR NOT NULL, '  # example: senior flutter developer
     'rights INTEGER NOT NULL, '  # 1 - simple user, 2 - admin, 3 - manager, 4 - editor
-    'coins INTEGER NOT NULL, '
     'thanksgivings INTEGER NOT NULL, '
     'address VARCHAR NOT NULL, '
     'cart JSONB NOT NULL'
