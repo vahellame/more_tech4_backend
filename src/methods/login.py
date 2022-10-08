@@ -20,7 +20,7 @@ def process_login(request: Request):
         maybe_phone = '7' + maybe_phone
     password = data['password']
     res = execute_sql(
-        f"SELECT token, hash_and_salt "
+        f"SELECT * "
         f"FROM users "
         f"WHERE phone = %s OR email = %s",
         (maybe_phone, login,),
@@ -31,7 +31,7 @@ def process_login(request: Request):
             'status': 'error',
             'error': "Телефон или email не зарегистрирован"
         }
-        return jsonify(response_dict), 403
+        return jsonify(response_dict)
 
     hash_and_salt = res[0]['hash_and_salt']
     if bcrypt.checkpw(password.encode(encoding='utf-8'), hash_and_salt.encode(encoding='utf-8')) is not True:
@@ -39,11 +39,10 @@ def process_login(request: Request):
             'status': 'ko',
             'error': 'Неправильный пароль',
         }
-        return jsonify(response_dict), 403
+        return jsonify(response_dict)
 
-    token = res[0]['token']
     response_dict = {
         'status': 'ok',
-        'token': token,
+        'user': res[0],
     }
-    return jsonify(response_dict), 200
+    return jsonify(response_dict)

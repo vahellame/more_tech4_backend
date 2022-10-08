@@ -61,7 +61,7 @@ execute_sql(
     'description VARCHAR NOT NULL, '
     'people_gets_count INTEGER NOT NULL, '
     'price INTEGER NOT NULL, '
-    'photo_links VARCHAR[] NOT NULL'
+    'photo_link VARCHAR NOT NULL'
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
