@@ -28,7 +28,7 @@ def process_search_user(request: Request):
             'SELECT * '
             'FROM users '
             'WHERE first_name ILIKE %s OR middle_name ILIKE %s OR last_name ILIKE %s',
-            (name,),
+            (name, name, name),
             POSTGRESQL_CONNECTION_PARAMS,
         )
         response_dict = {
