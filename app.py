@@ -15,6 +15,7 @@ from src.methods.who import process_who
 from src.methods.whoami import process_whoami
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 CORS(app)
 
 
