@@ -87,3 +87,8 @@ def handle_transfer_rubles():
 @app.route("/transfer_matics", methods=['POST'])
 def handle_transfer_matics():
     return process_transfer_matics(request)
+
+
+@app.route("/test", methods=['GET'])
+def handle_test():
+    return jsonify({'status': 'ok'})

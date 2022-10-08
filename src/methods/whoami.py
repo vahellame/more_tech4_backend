@@ -5,6 +5,7 @@ from src.config import POSTGRESQL_CONNECTION_PARAMS, CRYPTO_BASE_URL
 from src.utils.exequte_sql import execute_sql
 from src.utils.get_token_from_request import get_token_from_request
 
+
 def process_whoami(request: Request):
     token = get_token_from_request(request)
     user_data = execute_sql(
