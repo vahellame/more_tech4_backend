@@ -55,6 +55,6 @@ def handle_list_coworkers():
     return process_list_coworkers(request)
 
 
-@app.route("/photo/<url>", methots=['GET'])
-def handle_photo(url):
-    return process_photo(url)
+@app.route("/photo/<path:photo_path>", methods=['GET'])
+def handle_photo(photo_path):
+    return process_photo(photo_path)
