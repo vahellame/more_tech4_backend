@@ -21,7 +21,7 @@ def process_whoami(request: Request):
         'WHERE token = %s',
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )
+    )[0]['public_key']
 
     balance = requests.get(
         f'{CRYPTO_BASE_URL}/v1/wallets/{public_key}/balance',

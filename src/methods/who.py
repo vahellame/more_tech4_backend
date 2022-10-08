@@ -21,7 +21,7 @@ def process_who(request: Request):
         'WHERE id = %s',
         (user_id,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )
+    )[0]['public_key']
 
     balance = requests.get(
         f'{CRYPTO_BASE_URL}/v1/wallets/{public_key}/balance',
