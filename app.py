@@ -14,14 +14,14 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.errorhandler(Exception)
-def handle(_):
-    return jsonify(
-        {
-            'status': 'error',
-            'error': "Ошибка сервера",
-        }
-    ), 200
+# @app.errorhandler(Exception)
+# def handle(_):
+#     return jsonify(
+#         {
+#             'status': 'error',
+#             'error': "Ошибка сервера",
+#         }
+#     ), 200
 
 
 @app.route("/login", methods=['POST'])
