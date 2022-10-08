@@ -5,6 +5,7 @@ from flask_cors import CORS
 
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.login import process_login
+from src.methods.photo import process_photo
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
 from src.methods.who import process_who
@@ -53,3 +54,6 @@ def handle_search_team():
 def handle_list_coworkers():
     return process_list_coworkers(request)
 
+@app.route("/photo/<url>", methots=['GET'])
+def handle_photo(url):
+    return process_photo(url)

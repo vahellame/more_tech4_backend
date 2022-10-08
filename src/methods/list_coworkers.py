@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Request, jsonify, abort
 
 from src.config import POSTGRESQL_CONNECTION_PARAMS
