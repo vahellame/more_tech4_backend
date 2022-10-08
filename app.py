@@ -8,6 +8,7 @@ from src.methods.login import process_login
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
 from src.methods.who import process_who
+from src.methods.whoami import process_whoami
 
 app = Flask(__name__)
 CORS(app)
@@ -28,9 +29,14 @@ def handle_login():
     return process_login(request)
 
 
-@app.route("/who", methods=['GET'])
+@app.route("/who", methods=['POST'])
 def handle_who():
     return process_who(request)
+
+
+@app.route("/whoami", methods=['GET'])
+def handle_whoami():
+    return process_whoami(request)
 
 
 @app.route("/search_user", methods=['POST'])

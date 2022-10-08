@@ -27,7 +27,6 @@ execute_sql(
     'coins INTEGER NOT NULL, '
     'thanksgivings INTEGER NOT NULL, '
     'address VARCHAR NOT NULL, '
-    'achievement_ids INTEGER[] NOT NULL, '
     'cart JSONB NOT NULL'
     ')',
     (),
@@ -62,6 +61,18 @@ execute_sql(
     'people_gets_count INTEGER NOT NULL, '
     'price INTEGER NOT NULL, '
     'photo_link VARCHAR NOT NULL'
+    ')',
+    (),
+    POSTGRESQL_CONNECTION_PARAMS,
+)
+
+execute_sql(
+    'CREATE TABLE transactions('
+    'id SERIAL PRIMARY KEY, '
+    'tx_hash VARCHAR NOT NULL, '
+    'tx_type INTEGER NOT NULL, '
+    'user_id_from INTEGER NOT NULL, '
+    'user_id_to INTEGER NOT NULL '
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
