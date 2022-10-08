@@ -5,7 +5,7 @@ from src.config import POSTGRESQL_CONNECTION_PARAMS, CRYPTO_BASE_URL
 from src.utils.exequte_sql import execute_sql
 
 
-def process_transfer_rubles(request: Request):
+def process_transfer_matics(request: Request):
     data = request.get_json()
     token = data['token']
     private_key_from = data['private_key_from']
@@ -27,7 +27,7 @@ def process_transfer_rubles(request: Request):
         POSTGRESQL_CONNECTION_PARAMS,
     )[0]['id']
     response = requests.post(
-        f'{CRYPTO_BASE_URL}/v1/transfers/ruble',
+        f'{CRYPTO_BASE_URL}/v1/transfers/matic',
         json={
             "fromPrivateKey": private_key_from,
             "toPublicKey": to_public_key,
@@ -38,7 +38,7 @@ def process_transfer_rubles(request: Request):
     execute_sql(
         'INSERT INTO transactions(tx_hash, tx_type, amount, user_id_from, user_id_to) '
         'VALUES (%s, %s, %s, %s, %s)',
-        (transaction_hash, 1, amount, user_id_from, user_id_to),
+        (transaction_hash, 2, amount, user_id_from, user_id_to),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     return jsonify(response)
