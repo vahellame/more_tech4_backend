@@ -8,6 +8,7 @@ from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
+from src.methods.upload_photo import process_upload_photo
 from src.methods.who import process_who
 from src.methods.whoami import process_whoami
 
@@ -58,3 +59,8 @@ def handle_list_coworkers():
 @app.route("/photo/<path:photo_path>", methods=['GET'])
 def handle_photo(photo_path):
     return process_photo(photo_path)
+
+
+@app.route("/upload_photo", methods=['POST'])
+def handle_upload_photo():
+    return process_upload_photo(request)
