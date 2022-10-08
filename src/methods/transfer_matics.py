@@ -3,11 +3,12 @@ from flask import jsonify, Request
 
 from src.config import POSTGRESQL_CONNECTION_PARAMS, CRYPTO_BASE_URL
 from src.utils.exequte_sql import execute_sql
+from src.utils.get_token_from_request import get_token_from_request
 
 
 def process_transfer_matics(request: Request):
     data = request.get_json()
-    token = data['token']
+    token = get_token_from_request(request)
     private_key_from = data['private_key_from']
     user_id_to = data['user_id_to']
     amount = data['amount']
