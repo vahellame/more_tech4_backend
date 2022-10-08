@@ -23,7 +23,8 @@ execute_sql(
     'rights INTEGER NOT NULL, '  # 1 - simple user, 2 - admin, 3 - manager, 4 - editor
     'thanksgivings INTEGER NOT NULL, '
     'address VARCHAR NOT NULL, '
-    'cart JSONB NOT NULL'
+    'cart JSONB NOT NULL, '
+    'liked_product_ids INTEGER[] NOT NULL DEFAULT [] '
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
