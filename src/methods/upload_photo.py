@@ -13,7 +13,7 @@ def process_upload_photo(request: Request):
     file.save(tmp_filename)
     photo_id = len(os.listdir(PHOTOS_DIR_PATH)) + 1
     im = Image.open(tmp_filename)
-    im.save(f'{photo_id}.png')
+    im.save(f'{PHOTOS_DIR_PATH}/{photo_id}.png')
     os.remove(tmp_filename)
     return jsonify(
         {
