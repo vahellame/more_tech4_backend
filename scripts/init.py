@@ -24,7 +24,7 @@ execute_sql(
     'thanksgivings INTEGER NOT NULL, '
     'address VARCHAR NOT NULL, '
     'cart JSONB NOT NULL, '
-    'liked_product_ids INTEGER[] NOT NULL DEFAULT [] '
+    'liked_product_ids INTEGER[] DEFAULT ARRAY[]::INTEGER[] '
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
