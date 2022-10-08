@@ -36,7 +36,7 @@ def process_login(request: Request):
     hash_and_salt = res[0]['hash_and_salt']
     if bcrypt.checkpw(password.encode(encoding='utf-8'), hash_and_salt.encode(encoding='utf-8')) is not True:
         response_dict = {
-            'status': 'ko',
+            'status': 'error',
             'error': 'Неправильный пароль',
         }
         return jsonify(response_dict)
