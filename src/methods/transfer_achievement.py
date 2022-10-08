@@ -34,11 +34,13 @@ def process_transfer_achievement(request: Request):
             "nftCount": 1,
         },
     )
+    print(1, r.json())
     transaction_hash = r.json()['transaction_hash']
     time.sleep(10)
     r = requests.get(
         f'{CRYPTO_BASE_URL}/v1/nft/generate/{transaction_hash}',
     )
+    print(2, r.json())
     token_id = r.json()['tokens'][0]
     r = requests.post(
         f'{CRYPTO_BASE_URL}/v1/transfers/nft',
@@ -48,6 +50,7 @@ def process_transfer_achievement(request: Request):
             "tokenId": token_id,
         }
     )
+    print(3, r.json())
     transaction_hash = r.json()['transaction_hash']
     execute_sql(
         'INSERT INTO transactions(tx_hash, tx_type, amount, user_id_from, user_id_to, achievement_id) '
