@@ -1,3 +1,5 @@
+import time
+
 import requests
 from flask import Request, jsonify
 
@@ -33,6 +35,7 @@ def process_transfer_achievement(request: Request):
         },
     )
     transaction_hash = r.json()['transaction_hash']
+    time.sleep(10)
     r = requests.get(
         f'{CRYPTO_BASE_URL}/v1/nft/generate/{transaction_hash}',
     )
