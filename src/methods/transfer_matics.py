@@ -42,4 +42,4 @@ def process_transfer_matics(request: Request):
         (transaction_hash, 2, amount, user_id_from, user_id_to),
         POSTGRESQL_CONNECTION_PARAMS,
     )
-    return jsonify(response)
+    return jsonify({'status': 'ok'})

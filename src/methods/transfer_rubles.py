@@ -42,4 +42,4 @@ def process_transfer_rubles(request: Request):
         (transaction_hash, 1, amount, user_id_from, user_id_to),
         POSTGRESQL_CONNECTION_PARAMS,
     )
-    return jsonify(response)
+    return jsonify({'status': 'ok'})
