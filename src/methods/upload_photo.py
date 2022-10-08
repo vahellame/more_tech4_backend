@@ -18,6 +18,6 @@ def process_upload_photo(request: Request):
     return jsonify(
         {
             'status': 'ok',
-            'photo_id': photo_id,
+            'photo_id': f'{photo_id}.png',
         }
     )
