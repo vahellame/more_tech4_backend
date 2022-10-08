@@ -4,6 +4,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from src.methods.create_achievement import process_create_achievement
+from src.methods.list_achievements import process_list_achievements
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.login import process_login
 from src.methods.photo import process_photo
@@ -95,6 +96,11 @@ def handle_transfer_matics():
 @app.route("/create_achievement", methods=['POST'])
 def handle_create_achievement():
     return process_create_achievement(request)
+
+
+@app.route("/list_achievements", methods=['POST'])
+def handle_list_achievements():
+    return process_list_achievements(request)
 
 
 @app.route("/test", methods=['GET'])
