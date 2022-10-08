@@ -19,14 +19,14 @@ app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024 * 1024
 CORS(app)
 
 
-@app.errorhandler(Exception)
-def handle(_):
-    return jsonify(
-        {
-            'status': 'error',
-            'error': "Ошибка сервера",
-        }
-    )
+# @app.errorhandler(Exception)
+# def handle(_):
+#     return jsonify(
+#         {
+#             'status': 'error',
+#             'error': "Ошибка сервера",
+#         }
+#     )
 
 
 @app.route("/login", methods=['POST'])
