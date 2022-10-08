@@ -76,5 +76,7 @@ execute_sql(
     POSTGRESQL_CONNECTION_PARAMS,
 )
 
+
+
 # admin создает ачивки
 # manager рассылает ачивки
