@@ -35,7 +35,7 @@ def process_transfer_matics(request: Request):
             "amount": amount
         }
     )
-    transaction_hash = response.json()['transactionHash']
+    transaction_hash = response.json()['transaction']
     execute_sql(
         'INSERT INTO transactions(tx_hash, tx_type, amount, user_id_from, user_id_to) '
         'VALUES (%s, %s, %s, %s, %s)',
