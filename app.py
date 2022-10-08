@@ -10,6 +10,7 @@ from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
+from src.methods.transfer_achievement import process_transfer_achievement
 from src.methods.transfer_matics import process_transfer_matics
 from src.methods.transfer_rubles import process_transfer_rubles
 from src.methods.upload_photo import process_upload_photo
@@ -96,6 +97,11 @@ def handle_transfer_matics():
 @app.route("/create_achievement", methods=['POST'])
 def handle_create_achievement():
     return process_create_achievement(request)
+
+
+@app.route("/transfer_achievement", methods=['POST'])
+def handle_transfer_achievement():
+    return process_transfer_achievement(request)
 
 
 @app.route("/list_achievements", methods=['POST'])

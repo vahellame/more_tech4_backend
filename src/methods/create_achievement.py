@@ -12,14 +12,14 @@ def process_create_achievement(request: Request):
     description = data['description']
     price = data['price']
     photo_id = data['photo_id']
-    requests.post(
-        f'{CRYPTO_BASE_URL}/v1/nft/generate',
-        {
-            "toPublicKey": CRYPTO_OWNER_PUBLIC_KEY,
-            'uri': f'{BACKEND_BASE_URL}/photo/{photo_id}',
-            "nftCount": 1,
-        },
-    )
+    # requests.post(
+    #     f'{CRYPTO_BASE_URL}/v1/nft/generate',
+    #     {
+    #         "toPublicKey": CRYPTO_OWNER_PUBLIC_KEY,
+    #         'uri': f'{BACKEND_BASE_URL}/photo/{photo_id}',
+    #         "nftCount": 1,
+    #     },
+    # )
     execute_sql(
         "INSERT INTO achievements(title, description, people_gets_count, price, photo_id) "
         "VALUES (%s, %s, %s, %s, %s)",
