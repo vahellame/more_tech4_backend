@@ -49,6 +49,7 @@ def handle_search_team():
     return process_search_team(request)
 
 
-@app.route("/list_coworkers", methods=['GET'])
+@app.route("/list_coworkers", methods=['POST'])
 def handle_list_coworkers():
     return process_list_coworkers(request)
+

@@ -1,7 +1,3 @@
-import secrets
-
-import bcrypt
-
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
 
@@ -70,7 +66,8 @@ execute_sql(
     'CREATE TABLE transactions('
     'id SERIAL PRIMARY KEY, '
     'tx_hash VARCHAR NOT NULL, '
-    'tx_type INTEGER NOT NULL, '
+    'tx_type INTEGER NOT NULL, '  # 1 - rubles, 2 - matic, 3 - nft
+    'amount INTEGER, '
     'user_id_from INTEGER NOT NULL, '
     'user_id_to INTEGER NOT NULL '
     ')',
