@@ -17,7 +17,7 @@ def process_list_achievements(request: Request):
     for i in range(len(user_achievements)):
         token_id = user_achievements[i]['amount']
         r = requests.get(
-            f"{CRYPTO_BASE_URL}//v1/nft/{token_id}"
+            f"{CRYPTO_BASE_URL}/v1/nft/{token_id}"
         )
         user_achievements[i]['nft_data'] = r.json()
 
