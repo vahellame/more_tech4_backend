@@ -3,6 +3,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+from src.methods.create_achievement import process_create_achievement
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.login import process_login
 from src.methods.photo import process_photo
@@ -17,6 +18,7 @@ from src.methods.whoami import process_whoami
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
 CORS(app)
+
 
 # @app.before_request
 # def handle_chunking():
@@ -88,6 +90,11 @@ def handle_transfer_rubles():
 @app.route("/transfer_matics", methods=['POST'])
 def handle_transfer_matics():
     return process_transfer_matics(request)
+
+
+@app.route("/create_achievement", methods=['POST'])
+def handle_create_achievement():
+    return process_create_achievement(request)
 
 
 @app.route("/test", methods=['GET'])

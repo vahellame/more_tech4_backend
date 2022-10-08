@@ -23,7 +23,7 @@ def process_create_achievement(request: Request):
     execute_sql(
         "INSERT INTO achievements(title, description, people_gets_count, price, photo_id) "
         "VALUES (%s, %s, %s, %s, %s)",
-        (),
+        (title, description, 0, price, photo_id),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     return jsonify(
