@@ -43,8 +43,11 @@ execute_sql(
     'id SERIAL PRIMARY KEY, '
     'title VARCHAR NOT NULL, '
     'price INTEGER NOT NULL, '
+    'product_category VARCHAR, '  # merch, from_partners, from_coworkers
+    'product_type VARCHAR, '  # cup, backpack, clother
+    'popularity INTEGER, '  
     'description VARCHAR NOT NULL, '
-    'photo_ids VARCHAR[] NOT NULL'
+    'photo_id VARCHAR NOT NULL'
     ')',
     (),
     POSTGRESQL_CONNECTION_PARAMS,
@@ -68,6 +71,17 @@ execute_sql(
     'tx_hash VARCHAR NOT NULL, '
     'tx_type INTEGER NOT NULL, '  # 1 - rubles, 2 - matic, 3 - nft
     'amount INTEGER, '
+    'user_id_from INTEGER NOT NULL, '
+    'user_id_to INTEGER NOT NULL '
+    ')',
+    (),
+    POSTGRESQL_CONNECTION_PARAMS,
+)
+
+execute_sql(
+    'CREATE TABLE thanksgivings('
+    'id SERIAL PRIMARY KEY, '
+    'price INTEGER NOT NULL, '
     'user_id_from INTEGER NOT NULL, '
     'user_id_to INTEGER NOT NULL '
     ')',
