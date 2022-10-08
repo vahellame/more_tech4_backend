@@ -28,8 +28,8 @@ def handle_login():
     return process_login(request)
 
 
-@app.route("/whoami", methods=['GET'])
-def handle_whoami():
+@app.route("/who", methods=['GET'])
+def handle_who():
     return process_who(request)
 
 
