@@ -9,7 +9,7 @@ def process_list_thanksgivings(request: Request):
     list_thanksgivings = execute_sql(
         'SELECT thanksgivings '
         'FROM users '
-        'WHERE user_id = %s',
+        'WHERE id = %s',
         (user_id,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
