@@ -25,7 +25,7 @@ def process_who(request: Request):
 
     balance = requests.get(
         f'{CRYPTO_BASE_URL}/v1/wallets/{public_key}/balance',
-    )
+    ).json()
 
     if len(user_data) != 0:
         response_dict = {
