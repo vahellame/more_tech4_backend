@@ -14,7 +14,7 @@ def process_unlike_product(request: Request):
         'WHERE token = %s',
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )
+    )[0]['liked_product_ids']
     new_list_liked_products = list(list_liked_products).remove(product_id)
     execute_sql(
         'UPDATE users '

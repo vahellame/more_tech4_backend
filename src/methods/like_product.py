@@ -14,7 +14,7 @@ def process_like_product(request: Request):
         'WHERE token = %s',
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )
+    )[0]['liked_product_ids']
     if product_id not in list_liked_products:
         new_list_liked_products = list(list_liked_products).append(product_id)
         execute_sql(

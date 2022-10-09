@@ -13,7 +13,7 @@ def process_list_liked_products(request: Request):
         'WHERE token = %s',
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )[0]
+    )[0]['liked_product_ids']
     products = []
     for product_id in list_liked_products:
         product = execute_sql(
