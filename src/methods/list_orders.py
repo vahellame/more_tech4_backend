@@ -21,8 +21,10 @@ def process_list_orders(request: Request):
         (user_id,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
+    orders_list = []
     for order in orders:
         old_cart = order['products']
+        cart_list = []
         for product_id in order['products'].keys():
             product_id = int(product_id)
             product_data = execute_sql(
@@ -33,13 +35,17 @@ def process_list_orders(request: Request):
                 POSTGRESQL_CONNECTION_PARAMS,
             )[0]
             product_id = str(product_id)
-            old_cart[product_id] = {
-                'qty': old_cart[product_id],
-                'product_data': product_data,
-            }
+            cart_list.append(
+                {
+                    'qty': old_cart[product_id],
+                    'product_data': product_data,
+
+                },
+            )
+        orders_list.append(cart_list)
     return jsonify(
         {
             'status': 'ok',
-            'orders': orders,
+            'orders': orders_list,
         }
     )
