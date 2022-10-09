@@ -36,7 +36,7 @@ PYTHONPATH=$PWD ./venv/bin/python common/init.py
 
 Введите в терминале:
 ```
-sudo cat common/mt-backend.service > /usr/lib/systemd/system/mt-backend.service
+cat common/mt-backend.service | sudo tee /usr/lib/systemd/system/mt-backend.service
 sudo systemctl daemon-reload
 sudo systemctl enable mt-backend.service
 sudo systemctl start mt-backend.service
