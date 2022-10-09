@@ -23,6 +23,7 @@ def process_get_cart(request: Request):
             (product_id,),
             POSTGRESQL_CONNECTION_PARAMS,
         )[0]
+        product_id = str(product_id)
         cart[product_id] = {
             'qty': cart[product_id],
             'product_data': product_data,
