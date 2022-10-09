@@ -27,8 +27,8 @@ def process_create_thanksgiving(request: Request):
     execute_sql(
         'UPDATE users '
         'SET thanksgivings = thanksgivings + 1 '
-        'WHERE token = %s',
-        (token,),
+        'WHERE id = %s',
+        (user_id_to,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     return jsonify({
