@@ -36,6 +36,6 @@ def process_get_cart(request: Request):
     return jsonify(
         {
             'status': 'ok',
-            'cart': cart,
+            'cart': cart_list,
         }
     )
