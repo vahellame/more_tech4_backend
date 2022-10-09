@@ -176,6 +176,6 @@ def handle_create_thanksgiving():
     return process_create_thanksgiving(request)
 
 
-@app.route("/list_thanksgivings", methods=['GET'])
+@app.route("/list_thanksgivings", methods=['POST'])
 def handle_list_thanksgiving():
     return process_list_thanksgivings(request)
