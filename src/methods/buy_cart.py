@@ -7,20 +7,15 @@ from src.utils.get_token_from_request import get_token_from_request
 
 def process_buy_cart(request: Request):
     token = get_token_from_request(request)
-    user_id = execute_sql(
-        'SELECT id '
+    res = execute_sql(
+        'SELECT id, cart '
         'FROM users '
         'WHERE token = %s',
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )[0]['id']
-    cart = execute_sql(
-        'SELECT cart '
-        'FROM users '
-        'WHERE token = %s',
-        (token,),
-        POSTGRESQL_CONNECTION_PARAMS,
-    )[0]['cart']
+    )[0]
+    cart = res['cart']
+    user_id = res['id']
     execute_sql(
         'UPDATE users '
         'SET cart = %s '
