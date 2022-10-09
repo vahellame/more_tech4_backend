@@ -46,14 +46,14 @@ CORS(app)
 #     if transfer_encoding == u"chunked":
 #         request.environ["wsgi.input_terminated"] = False
 
-@app.errorhandler(Exception)
-def handle(_):
-    return jsonify(
-        {
-            'status': 'error',
-            'error': "Ошибка сервера",
-        }
-    )
+# @app.errorhandler(Exception)
+# def handle(_):
+#     return jsonify(
+#         {
+#             'status': 'error',
+#             'error': "Ошибка сервера",
+#         }
+#     )
 
 
 @app.route("/login", methods=['POST'])
