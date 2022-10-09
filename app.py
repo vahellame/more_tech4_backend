@@ -16,6 +16,7 @@ from src.methods.list_coworkers import process_list_coworkers
 from src.methods.list_liked_products import process_list_liked_products
 from src.methods.list_orders import process_list_orders
 from src.methods.list_thanksgivings import process_list_thanksgivings
+from src.methods.list_transactions import process_list_transactions
 from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.remove_product_from_cart import process_remove_product_from_cart
@@ -179,3 +180,8 @@ def handle_create_thanksgiving():
 @app.route("/list_thanksgivings", methods=['POST'])
 def handle_list_thanksgiving():
     return process_list_thanksgivings(request)
+
+
+@app.route("/list_transactions", methods=['POST'])
+def handle_list_transactions():
+    return process_list_transactions(request)
