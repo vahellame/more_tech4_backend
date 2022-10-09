@@ -21,7 +21,6 @@ def process_list_orders(request: Request):
         (user_id,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
-    orders_list = []
     for order in orders:
         old_cart = order['products']
         for product_id in order['products'].keys():
