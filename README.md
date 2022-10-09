@@ -1,6 +1,6 @@
 ## More Tech 4.0 Backend
 
-### Шаг 1) Требования
+### Шаг 1. Требования
 
 - Linux (Ubuntu)
 - Python 3.5+
