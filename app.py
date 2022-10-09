@@ -13,6 +13,7 @@ from src.methods.list_all_achievements import process_list_all_achievements
 from src.methods.list_all_products import process_list_all_products
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.list_liked_products import process_list_liked_products
+from src.methods.list_orders import process_list_orders
 from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.remove_product_from_cart import process_remove_product_from_cart
@@ -161,6 +162,11 @@ def handle_list_all_products():
 @app.route("/buy_cart", methods=['GET'])
 def handle_buy_cart():
     return process_buy_cart(request)
+
+
+@app.route("/list_orders", methods=['GET'])
+def handle_list_orders():
+    return process_list_orders(request)
 
 
 @app.route("/test", methods=['GET'])

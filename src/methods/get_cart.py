@@ -28,4 +28,9 @@ def process_get_cart(request: Request):
             'product_data': product_data,
         }
 
-    return jsonify(cart)
+    return jsonify(
+        {
+            'status': 'ok',
+            'cart': cart,
+        }
+    )
