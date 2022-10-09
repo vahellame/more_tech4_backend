@@ -16,7 +16,7 @@ def process_remove_product_from_cart(request: Request):
         "WHERE token = %s",
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )[0]
+    )[0]['cart']
     if cart[product_id] == 1:
         del cart[product_id]
     else:

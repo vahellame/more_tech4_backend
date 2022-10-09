@@ -13,7 +13,7 @@ def process_get_cart(request: Request):
         "WHERE token = %s",
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )[0]
+    )[0]['cart']
     for product_id in cart.keys():
         product_id = int(product_id)
         product_data = execute_sql(

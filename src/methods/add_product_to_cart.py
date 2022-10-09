@@ -16,7 +16,7 @@ def process_add_product_to_cart(request: Request):
         "WHERE token = %s",
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
-    )[0]
+    )[0]['cart']
     if product_id in (cart.keys()):
         cart[product_id] = cart[product_id] + 1
     else:
