@@ -9,6 +9,7 @@ from src.methods.get_cart import process_get_cart
 from src.methods.like_product import process_like_product
 from src.methods.list_achievements import process_list_achievements
 from src.methods.list_all_achievements import process_list_all_achievements
+from src.methods.list_all_products import process_list_all_products
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.list_liked_products import process_list_liked_products
 from src.methods.login import process_login
@@ -149,6 +150,11 @@ def handle_unlike_product():
 @app.route("/list_liked_products", methods=['GET'])
 def handle_list_liked_products():
     return process_list_liked_products(request)
+
+
+@app.route("/list_all_products", methods=['GET'])
+def handle_list_all_products():
+    return process_list_all_products()
 
 
 @app.route("/test", methods=['GET'])
