@@ -158,7 +158,7 @@ def handle_list_all_products():
     return process_list_all_products()
 
 
-@app.route("/buy_cart", methods=['POST'])
+@app.route("/buy_cart", methods=['GET'])
 def handle_buy_cart():
     return process_buy_cart(request)
 
