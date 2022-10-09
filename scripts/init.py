@@ -82,6 +82,7 @@ execute_sql(
 execute_sql(
     'CREATE TABLE thanksgivings('
     'id SERIAL PRIMARY KEY, '
+    'title VARCHAR NOT NULL , '
     'price INTEGER NOT NULL, '
     'user_id_from INTEGER NOT NULL, '
     'user_id_to INTEGER NOT NULL '

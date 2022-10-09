@@ -10,7 +10,7 @@ def process_create_thanksgiving(request: Request):
     data = request.get_json()
     user_id_to = data['user_id_to']
     price = data['price']
-    title = data['price']
+    title = data['title']
     user_id_from = execute_sql(
         'SELECT id '
         'FROM users '
