@@ -6,8 +6,11 @@ from flask_cors import CORS
 from src.methods.add_product_to_cart import process_add_product_to_cart
 from src.methods.create_achievement import process_create_achievement
 from src.methods.get_cart import process_get_cart
+from src.methods.like_product import process_like_product
 from src.methods.list_achievements import process_list_achievements
+from src.methods.list_all_achievements import process_list_all_achievements
 from src.methods.list_coworkers import process_list_coworkers
+from src.methods.list_liked_products import process_list_liked_products
 from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.remove_product_from_cart import process_remove_product_from_cart
@@ -16,6 +19,7 @@ from src.methods.search_user import process_search_user
 from src.methods.transfer_achievement import process_transfer_achievement
 from src.methods.transfer_matics import process_transfer_matics
 from src.methods.transfer_rubles import process_transfer_rubles
+from src.methods.unlike_product import process_unlike_product
 from src.methods.upload_photo import process_upload_photo
 from src.methods.who import process_who
 from src.methods.whoami import process_whoami
@@ -37,14 +41,14 @@ CORS(app)
 #     if transfer_encoding == u"chunked":
 #         request.environ["wsgi.input_terminated"] = False
 
-# @app.errorhandler(Exception)
-# def handle(_):
-#     return jsonify(
-#         {
-#             'status': 'error',
-#             'error': "Ошибка сервера",
-#         }
-#     )
+@app.errorhandler(Exception)
+def handle(_):
+    return jsonify(
+        {
+            'status': 'error',
+            'error': "Ошибка сервера",
+        }
+    )
 
 
 @app.route("/login", methods=['POST'])
@@ -127,6 +131,28 @@ def handle_get_cart():
     return process_get_cart(request)
 
 
+@app.route("/list_all_achievements", methods=['GET'])
+def handle_list_all_achievements():
+    return process_list_all_achievements()
+
+
+@app.route("/like_product", methods=['POST'])
+def handle_like_product():
+    return process_like_product(request)
+
+
+@app.route("/unlike_product", methods=['POST'])
+def handle_unlike_product():
+    return process_unlike_product(request)
+
+
+@app.route("/list_liked_products", methods=['GET'])
+def handle_list_liked_products():
+    return process_list_liked_products(request)
+
+
 @app.route("/test", methods=['GET'])
 def handle_test():
     return jsonify({'status': 'ok'})
+
+
