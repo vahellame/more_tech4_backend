@@ -1,4 +1,5 @@
 from flask import Request, jsonify
+from psycopg2.extras import Json
 
 from src.config import POSTGRESQL_CONNECTION_PARAMS
 from src.utils.exequte_sql import execute_sql
@@ -26,8 +27,15 @@ def process_buy_cart(request: Request):
     execute_sql(
         'INSERT INTO orders(user_id, products) '
         'VALUES (%s, %s)',
-        (user_id, cart,),
+        (user_id, Json(cart),),
         POSTGRESQL_CONNECTION_PARAMS,
+    )
+    execute_sql(
+        'UPDATE users '
+        'SET cart = %s '
+        'WHERE id = %s',
+        (Json({}), user_id,),
+        POSTGRESQL_CONNECTION_PARAMS
     )
     return jsonify({
         'status': 'ok'

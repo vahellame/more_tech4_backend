@@ -4,6 +4,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from src.methods.add_product_to_cart import process_add_product_to_cart
+from src.methods.buy_cart import process_buy_cart
 from src.methods.create_achievement import process_create_achievement
 from src.methods.get_cart import process_get_cart
 from src.methods.like_product import process_like_product
@@ -155,6 +156,11 @@ def handle_list_liked_products():
 @app.route("/list_all_products", methods=['GET'])
 def handle_list_all_products():
     return process_list_all_products()
+
+
+@app.route("/buy_cart", methods=['POST'])
+def handle_buy_cart():
+    return process_buy_cart(request)
 
 
 @app.route("/test", methods=['GET'])
