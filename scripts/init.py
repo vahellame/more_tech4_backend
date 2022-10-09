@@ -90,5 +90,15 @@ execute_sql(
     POSTGRESQL_CONNECTION_PARAMS,
 )
 
+execute_sql(
+    'CREATE TABLE orders('
+    'id SERIAL PRIMARY KEY, '
+    'user_id INTEGER NOT NULL, '
+    "products JSONB NOT NULL DEFAULT '{}'::JSONB"
+    ')',
+    (),
+    POSTGRESQL_CONNECTION_PARAMS,
+)
+
 # admin создает ачивки
 # manager рассылает ачивки
