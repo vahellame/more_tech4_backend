@@ -7,8 +7,10 @@ from src.utils.get_token_from_request import get_token_from_request
 
 def process_create_thanksgiving(request: Request):
     token = get_token_from_request(request)
-    user_id_to = request.get_json()['user_id_to']
-    price = request.get_json()['price']
+    data = request.get_json()
+    user_id_to = data['user_id_to']
+    price = data['price']
+    title = data['price']
     user_id_from = execute_sql(
         'SELECT id '
         'FROM users '
@@ -17,9 +19,9 @@ def process_create_thanksgiving(request: Request):
         POSTGRESQL_CONNECTION_PARAMS,
     )[0]['id']
     execute_sql(
-        'INSERT INTO thanksgivings(price, user_id_from, user_id_to) '
-        'VALUES (%s, %s, %s)',
-        (price, user_id_from, user_id_to,),
+        'INSERT INTO thanksgivings(price, user_id_from, user_id_to, title) '
+        'VALUES (%s, %s, %s, %s)',
+        (price, user_id_from, user_id_to, title,),
         POSTGRESQL_CONNECTION_PARAMS,
     )
     execute_sql(
