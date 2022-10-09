@@ -18,13 +18,6 @@ def process_buy_cart(request: Request):
     cart = res['cart']
     user_id = res['id']
     execute_sql(
-        'UPDATE users '
-        'SET cart = %s '
-        'WHERE token = %s ',
-        ({}, token,),
-        POSTGRESQL_CONNECTION_PARAMS,
-    )
-    execute_sql(
         'INSERT INTO orders(user_id, products) '
         'VALUES (%s, %s)',
         (user_id, Json(cart),),
