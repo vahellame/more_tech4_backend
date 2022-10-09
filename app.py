@@ -3,11 +3,14 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+from src.methods.add_product_to_cart import process_add_product_to_cart
 from src.methods.create_achievement import process_create_achievement
+from src.methods.get_cart import process_get_cart
 from src.methods.list_achievements import process_list_achievements
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.login import process_login
 from src.methods.photo import process_photo
+from src.methods.remove_product_from_cart import process_remove_product_from_cart
 from src.methods.search_team import process_search_team
 from src.methods.search_user import process_search_user
 from src.methods.transfer_achievement import process_transfer_achievement
@@ -109,7 +112,21 @@ def handle_list_achievements():
     return process_list_achievements(request)
 
 
+@app.route("/add_product_to_cart", methods=['POST'])
+def handle_add_product_to_cart():
+    return process_add_product_to_cart(request)
+
+
+@app.route("/remove_product_from_cart", methods=['POST'])
+def handle_remove_product_from_cart():
+    return process_remove_product_from_cart(request)
+
+
+@app.route("/get_cart", methods=['GET'])
+def handle_get_cart():
+    return process_get_cart(request)
+
+
 @app.route("/test", methods=['GET'])
 def handle_test():
     return jsonify({'status': 'ok'})
-
