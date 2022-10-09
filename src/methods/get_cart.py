@@ -14,6 +14,7 @@ def process_get_cart(request: Request):
         (token,),
         POSTGRESQL_CONNECTION_PARAMS,
     )[0]['cart']
+    cart_list = []
     for product_id in cart.keys():
         product_id = int(product_id)
         product_data = execute_sql(
@@ -24,10 +25,13 @@ def process_get_cart(request: Request):
             POSTGRESQL_CONNECTION_PARAMS,
         )[0]
         product_id = str(product_id)
-        cart[product_id] = {
-            'qty': cart[product_id],
-            'product_data': product_data,
-        }
+        cart_list.append(
+            {
+                'qty': cart[product_id],
+                'product_data': product_data,
+
+            },
+        )
 
     return jsonify(
         {
