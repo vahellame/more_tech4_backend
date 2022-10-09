@@ -22,7 +22,7 @@ def process_list_liked_products(request: Request):
             'WHERE id = %s',
             (product_id,),
             POSTGRESQL_CONNECTION_PARAMS,
-        )
+        )[0]
         products.append(product)
     return jsonify({
         'products': products,
