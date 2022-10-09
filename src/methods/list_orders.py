@@ -32,6 +32,7 @@ def process_list_orders(request: Request):
                 (product_id,),
                 POSTGRESQL_CONNECTION_PARAMS,
             )[0]
+            product_id = str(product_id)
             old_cart[product_id] = {
                 'qty': old_cart[product_id],
                 'product_data': product_data,
