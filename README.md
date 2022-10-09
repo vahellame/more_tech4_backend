@@ -45,3 +45,7 @@ sudo systemctl start mt-backend.service
 ## Архитектура и стек
 
 ![Архитектура сервиса](common/sheme.jpg)
+
+В папке common лежат файлы, необходимые для запуска проекта и mock данные
+В папке src/methods лежат методы, которые определены в app.py
+В папке src/utils лежат утилиты проекта
