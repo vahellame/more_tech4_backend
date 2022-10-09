@@ -7,6 +7,11 @@
 - PostgreSQL
 
 ### Шаг 2) Установка
+Введите в psql:
+
+```
+CREATE DATABASE more_tech4;
+```
 
 Введите в терминале:
 
@@ -20,11 +25,7 @@ python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt
 PYTHONPATH=$PWD ./venv/bin/python common/init.py
 ```
-Введите в psql:
 
-```
-CREATE DATABASE more_tech4;
-```
 
 ### Шаг 3) Настройка
 
