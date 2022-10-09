@@ -6,6 +6,7 @@ from flask_cors import CORS
 from src.methods.add_product_to_cart import process_add_product_to_cart
 from src.methods.buy_cart import process_buy_cart
 from src.methods.create_achievement import process_create_achievement
+from src.methods.create_thanksgiving import process_create_thanksgiving
 from src.methods.get_cart import process_get_cart
 from src.methods.like_product import process_like_product
 from src.methods.list_achievements import process_list_achievements
@@ -14,6 +15,7 @@ from src.methods.list_all_products import process_list_all_products
 from src.methods.list_coworkers import process_list_coworkers
 from src.methods.list_liked_products import process_list_liked_products
 from src.methods.list_orders import process_list_orders
+from src.methods.list_thanksgivings import process_list_thanksgivings
 from src.methods.login import process_login
 from src.methods.photo import process_photo
 from src.methods.remove_product_from_cart import process_remove_product_from_cart
@@ -169,8 +171,11 @@ def handle_list_orders():
     return process_list_orders(request)
 
 
-@app.route("/test", methods=['GET'])
-def handle_test():
-    return jsonify({'status': 'ok'})
+@app.route("/create_thanksgiving", methods=['POST'])
+def handle_create_thanksgiving():
+    return process_create_thanksgiving(request)
 
 
+@app.route("/list_thanksgivings", methods=['GET'])
+def handle_list_thanksgiving():
+    return process_list_thanksgivings(request)
