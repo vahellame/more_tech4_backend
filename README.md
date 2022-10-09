@@ -44,4 +44,4 @@ sudo systemctl start mt-backend.service
 
 ## Архитектура и стек
 
-![Архитектура сервиса](/common/scheme.jpg)
+![Архитектура сервиса](common/sheme.jpg)
